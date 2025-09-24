@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login + Calculator</title>
+  <link rel="stylesheet" href="style1.css"/>
+  <style>
+    .hidden { display: none; }
+
+    /* History Styling */
+    .history {
+      max-height: 120px;
+      overflow-y: auto;
+      padding: 10px;
+      background: rgba(0,0,0,0.1);
+      border-radius: 8px;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    .history-item {
+      padding: 2px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+
+    /* Mode toggle as logo */
+    .mode-toggle {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
+      font-size: 22px;
+    }
+
+    /* History toggle as clock logo */
+    .history-toggle {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      cursor: pointer;
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body class="login-bg">
+
+  <!-- LOGIN PAGE -->
+  <div id="loginPage" class="card">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Email"/>
+    <input type="password" id="password" placeholder="Password"/>
+    <p id="errorMsg" style="color:red; text-align:center;"></p>
+    <button onclick="login()">Login</button>
+  </div>
+
+  <!-- CALCULATOR PAGE -->
+  <div id="calculatorPage" class="calc-bg hidden">
+    <div class="card calculator">
+
+      <!-- Dark/Light logo -->
+      <div class="mode-toggle" onclick="toggleMode()">🌙</div>
+
+      <!-- History toggle as clock -->
+      <div class="history-toggle" onclick="toggleHistory()">🕒</div>
+
+      <!-- History (hidden by default) -->
+      <div id="historyList" class="history hidden"></div>
+
+      <h2>Calculator</h2>
+      <input type="text" id="calcDisplay" class="display" disabled/>
+
+      <!-- BUTTONS -->
+      <div class="buttons">
+        <button onclick="clearDisplay()" class="clear">C</button>
+        <button onclick="backspace()" class="op">⌫</button>
+        <button onclick="appendValue('/')" class="op">÷</button>
+        <button onclick="appendValue('*')" class="op">×</button>
+
+        <button onclick="appendValue('7')">7</button>
+        <button onclick="appendValue('8')">8</button>
+        <button onclick="appendValue('9')">9</button>
+        <button onclick="appendValue('-')" class="op">−</button>
+
+        <button onclick="appendValue('4')">4</button>
+        <button onclick="appendValue('5')">5</button>
+        <button onclick="appendValue('6')">6</button>
+        <button onclick="appendValue('+')" class="op">+</button>
+
+        <button onclick="appendValue('1')">1</button>
+        <button onclick="appendValue('2')">2</button>
+        <button onclick="appendValue('3')">3</button>
+        <button onclick="calculate()" class="equals">=</button>
+
+        <button onclick="appendValue('0')" style="grid-column: span 2;">0</button>
+        <button onclick="appendValue('.')">.</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script1.js"></script>
+</body>
+</html>

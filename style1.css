@@ -1,0 +1,185 @@
+/* ================= GLOBAL ================= */
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+/* ================= BACKGROUNDS ================= */
+.login-bg {
+  background: url("bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calc-bg {
+  background: url("tsks.jpg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: rgba(255, 255, 255, 0.6); /* lower alpha = more transparent */
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 350px;
+  transition: background 0.3s, color 0.3s;
+  position: relative;
+}
+
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+input, button {
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.5rem 0;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+}
+button:hover {
+  transform: scale(1.05);
+}
+
+/* ================= DARK/LIGHT TOGGLE ICON ================= */
+.mode-toggle {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ================= HISTORY ================= */
+#historyContainer {
+  display: none; /* hidden by default */
+  background: #f1f1f1;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  max-height: 120px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.history-item {
+  padding: 0.3rem 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+.history-item:last-child {
+  border-bottom: none;
+}
+
+/* ================= CALCULATOR ================= */
+.calculator {
+  max-width: 400px;
+}
+
+/* DISPLAY */
+.display {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.5rem;
+  text-align: right;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background: #111;
+  color: white;
+}
+
+/* BUTTON GRID */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.buttons button {
+  padding: 1.2rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+}
+
+/* NUMBER BUTTONS */
+.buttons button:not(.op):not(.clear):not(.equals) {
+  background: #222;
+  color: white;
+}
+
+/* OPERATOR BUTTONS */
+.op {
+  background: #28a745; /* green */
+  color: white;
+}
+
+/* CLEAR BUTTON */
+.clear {
+  background: #dc3545; /* red */
+  color: white;
+}
+
+/* EQUAL BUTTON */
+.equals {
+  background: #007bff; /* blue */
+  color: white;
+}
+
+/* SAVE/OPTIONS SECTION */
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.actions button {
+  flex: 1;
+  padding: 0.8rem;
+}
+
+/* ================= DARK MODE ================= */
+.calculator.dark {
+  background: rgba(34,34,34,0.95);
+  color: white;
+}
+
+.calculator.dark .display {
+  background: #333;
+  color: white;
+}
+
+.calculator.dark #historyContainer {
+  background: #222;
+  color: white;
+  border-color: #444;
+}
+
+.calculator.dark .buttons button:not(.op):not(.clear):not(.equals) {
+  background: #555;
+  color: white;
+}
+
+.calculator.dark .clear { background: darkred; }
+.calculator.dark .op { background: darkgreen; }
+.calculator.dark .equals { background: darkblue; }
